@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using WeatherApi.Contracts.DTO;
+using WeatherApi.Models;
 using Xunit;
 
-namespace WeatherApi.Test.Contracts
+namespace WeatherApi.Test.UnitTests.Contracts
 {
-    public class DtoTests
+    public class ModelTests
     {
         private readonly Fixture _fixture = new();
 
@@ -17,9 +17,7 @@ namespace WeatherApi.Test.Contracts
         public static IEnumerable<object[]> TestTypes =>
             new List<object[]>
             {
-                new object[] { typeof(CityDto) },
-                new object[] { typeof(CurrentWeather) },
-                new object[] { typeof(WeatherForecast) }
+                new object[] { typeof(City) }
             };
 
         [Theory]

@@ -7,7 +7,7 @@ using WeatherApi.Contracts.Services;
 using WeatherApi.Controllers;
 using Xunit;
 
-namespace WeatherApi.Test.Api
+namespace WeatherApi.Test.UnitTests.Api
 {
     public class CitiesControllerTests
     {
@@ -39,6 +39,7 @@ namespace WeatherApi.Test.Api
             var actual = _controller.GetAll();
 
             // Assert
+            Assert.NotNull(actual);
             Assert.IsType<OkObjectResult>(actual);
             Assert.Equal(expected, ((OkObjectResult)actual).Value);
         }
@@ -49,12 +50,13 @@ namespace WeatherApi.Test.Api
             // Arrange
             var expected = _fixture.Create<CityDto>();
 
-            _cityService.Get(Arg.Any<int>()).ReturnsForAnyArgs(expected);
+            _cityService.Get(Arg.Any<int>()).Returns(expected);
 
             // Act
             var actual = _controller.Get(expected.Id);
 
             // Assert
+            Assert.NotNull(actual);
             Assert.IsType<OkObjectResult>(actual);
             Assert.Equal(expected, ((OkObjectResult)actual).Value);
         }
@@ -63,12 +65,13 @@ namespace WeatherApi.Test.Api
         public void Get_NotFound()
         {
             // Arrange
-            _cityService.Get(Arg.Any<int>()).ReturnsNullForAnyArgs();
+            _cityService.Get(Arg.Any<int>()).ReturnsNull();
 
             // Act
             var actual = _controller.Get(-1);
 
             // Assert
+            Assert.NotNull(actual);
             Assert.IsType<NotFoundObjectResult>(actual);
         }
     }

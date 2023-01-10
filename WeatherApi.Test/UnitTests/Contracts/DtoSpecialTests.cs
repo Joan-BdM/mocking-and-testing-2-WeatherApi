@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using WeatherApi.Contracts.DTO;
 using Xunit;
 
-namespace WeatherApi.Test.Contracts
+namespace WeatherApi.Test.UnitTests.Contracts
 {
     public class DtoSpecialTests
     {

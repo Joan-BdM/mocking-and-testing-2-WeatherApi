@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using WeatherApi.Contracts.DTO;
 using Xunit;
 
-namespace WeatherApi.Test.Api.IntegrationTests
+namespace WeatherApi.Test.IntegrationTests.Api
 {
     public class WeatherForecastControllerIntegrationTests
     {

@@ -1,8 +1,9 @@
 ﻿using System.Threading.Tasks;
 using WeatherApi.Application.Services;
+using WeatherApi.Contracts.DTO;
 using Xunit;
 
-namespace WeatherApi.Test.Application.IntegratinoTests
+namespace WeatherApi.Test.IntegratinoTests.Application
 {
     public class OpenMeteoServiceIntegrationTests
     {
@@ -21,6 +22,7 @@ namespace WeatherApi.Test.Application.IntegratinoTests
 
             // Assert
             Assert.NotNull(actual);
+            Assert.IsType<WeatherForecast>(actual);
             Assert.NotNull(actual.Current_weather);
         }
     }

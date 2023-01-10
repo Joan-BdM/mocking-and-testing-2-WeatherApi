@@ -7,7 +7,7 @@ using WeatherApi.Contracts.DTO;
 using WeatherApi.Contracts.Services;
 using Xunit;
 
-namespace WeatherApi.Test.Application
+namespace WeatherApi.Test.UnitTests.Application
 {
     public class WeatherForecastServiceTests
     {
@@ -38,13 +38,15 @@ namespace WeatherApi.Test.Application
                                     .With(x => x.City, expectedCity)
                                     .Create();
 
-            _cityService.Get(Arg.Any<int>()).ReturnsForAnyArgs(expectedCity);
-            _openMeteoService.Get(Arg.Any<float>(), Arg.Any<float>()).ReturnsForAnyArgs(expectedForecast);
+            _cityService.Get(Arg.Any<int>()).Returns(expectedCity);
+            _openMeteoService.Get(Arg.Any<float>(), Arg.Any<float>()).Returns(expectedForecast);
 
             // Act
             var actual = await _service.Get(1);
 
             // Assert
+            Assert.NotNull(actual);
+            Assert.IsType<WeatherForecast>(actual);
             Assert.Equal(expectedForecast, actual);
         }
 
@@ -52,7 +54,7 @@ namespace WeatherApi.Test.Application
         public async Task Get_NotFound()
         {
             // Arrange
-            _cityService.Get(Arg.Any<int>()).ReturnsNullForAnyArgs();
+            _cityService.Get(Arg.Any<int>()).ReturnsNull();
 
             // Act
             var actual = await _service.Get(1);

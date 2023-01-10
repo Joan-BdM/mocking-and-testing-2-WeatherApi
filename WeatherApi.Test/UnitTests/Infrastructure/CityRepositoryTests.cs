@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using WeatherApi.Infrastructure.Repositories;
 using WeatherApi.Models;
 using Xunit;
 
-namespace WeatherApi.Test.Infrastructure
+namespace WeatherApi.Test.UnitTests.Infrastructure
 {
     public class CityRepositoryTests
     {
@@ -25,7 +25,9 @@ namespace WeatherApi.Test.Infrastructure
             var actual = _sut.GetAll();
 
             // Assert
-            Assert.True(actual.Any());
+            Assert.NotNull(actual);
+            Assert.IsAssignableFrom<IEnumerable<City>>(actual);
+            Assert.NotEmpty(actual);
             Assert.Contains(expected, actual);
         }
 
@@ -39,6 +41,8 @@ namespace WeatherApi.Test.Infrastructure
             var actual = _sut.Get(expected.Id);
 
             // Assert
+            Assert.NotNull(actual);
+            Assert.IsType<City>(actual);
             Assert.Equal(expected, actual);
         }
 
