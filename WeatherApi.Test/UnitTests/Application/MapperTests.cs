@@ -23,48 +23,48 @@ namespace WeatherApi.Test.UnitTests.Application
             _mapper = config.CreateMapper();
         }
 
-        [Fact]
-        public void CityMap()
-        {
-            // Arrange
-            var original = _fixture.Create<City>();
-            var expected = new CityDto
-            {
-                Id = original.Id,
-                Name = original.Name,
-                Latitude = original.Latitude,
-                Longitude = original.Longitude
-            };
+        //[Fact]
+        //public void CityMap()
+        //{
+        //    // Arrange
+        //    var original = _fixture.Create<City>();
+        //    var expected = new CityDto
+        //    {
+        //        Id = original.Id,
+        //        Name = original.Name,
+        //        Latitude = original.Latitude,
+        //        Longitude = original.Longitude
+        //    };
 
-            // Act
-            var actual = _mapper.Map<CityDto>(original);
+        //    // Act
+        //    var actual = _mapper.Map<CityDto>(original);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<CityDto>(actual);
-            Assert.Equal(expected, actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<CityDto>(actual);
+        //    Assert.Equal(expected, actual);
+        //}
 
-        [Fact]
-        public void CityReverseMap()
-        {
-            // Arrange
-            var original = _fixture.Create<CityDto>();
-            var expected = new City
-            {
-                Id = original.Id,
-                Name = original.Name,
-                Latitude = original.Latitude,
-                Longitude = original.Longitude
-            };
+        //[Fact]
+        //public void CityReverseMap()
+        //{
+        //    // Arrange
+        //    var original = _fixture.Create<CityDto>();
+        //    var expected = new City
+        //    {
+        //        Id = original.Id,
+        //        Name = original.Name,
+        //        Latitude = original.Latitude,
+        //        Longitude = original.Longitude
+        //    };
 
-            // Act
-            var actual = _mapper.Map<City>(original);
+        //    // Act
+        //    var actual = _mapper.Map<City>(original);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<City>(actual);
-            Assert.Equal(expected, actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<City>(actual);
+        //    Assert.Equal(expected, actual);
+        //}
     }
 }

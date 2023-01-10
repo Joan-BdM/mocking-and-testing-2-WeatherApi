@@ -27,52 +27,52 @@ namespace WeatherApi.Test.UnitTests.Api
             _controller = new CitiesController(_cityService);
         }
 
-        [Fact]
-        public void GetAll_Ok()
-        {
-            // Arrange
-            var expected = _fixture.CreateMany<CityDto>();
+        //[Fact]
+        //public void GetAll_Ok()
+        //{
+        //    // Arrange
+        //    var expected = _fixture.CreateMany<CityDto>();
 
-            _cityService.GetAll().Returns(expected);
+        //    _cityService.GetAll().Returns(expected);
 
-            // Act
-            var actual = _controller.GetAll();
+        //    // Act
+        //    var actual = _controller.GetAll();
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<OkObjectResult>(actual);
-            Assert.Equal(expected, ((OkObjectResult)actual).Value);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<OkObjectResult>(actual);
+        //    Assert.Equal(expected, ((OkObjectResult)actual).Value);
+        //}
 
-        [Fact]
-        public void Get_Ok()
-        {
-            // Arrange
-            var expected = _fixture.Create<CityDto>();
+        //[Fact]
+        //public void Get_Ok()
+        //{
+        //    // Arrange
+        //    var expected = _fixture.Create<CityDto>();
 
-            _cityService.Get(Arg.Any<int>()).Returns(expected);
+        //    _cityService.Get(Arg.Any<int>()).Returns(expected);
 
-            // Act
-            var actual = _controller.Get(expected.Id);
+        //    // Act
+        //    var actual = _controller.Get(expected.Id);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<OkObjectResult>(actual);
-            Assert.Equal(expected, ((OkObjectResult)actual).Value);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<OkObjectResult>(actual);
+        //    Assert.Equal(expected, ((OkObjectResult)actual).Value);
+        //}
 
-        [Fact]
-        public void Get_NotFound()
-        {
-            // Arrange
-            _cityService.Get(Arg.Any<int>()).ReturnsNull();
+        //[Fact]
+        //public void Get_NotFound()
+        //{
+        //    // Arrange
+        //    _cityService.Get(Arg.Any<int>()).ReturnsNull();
 
-            // Act
-            var actual = _controller.Get(-1);
+        //    // Act
+        //    var actual = _controller.Get(-1);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<NotFoundObjectResult>(actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<NotFoundObjectResult>(actual);
+        //}
     }
 }

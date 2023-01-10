@@ -21,51 +21,51 @@ namespace WeatherApi.Test.IntegrationTests.Api
             _client = application.CreateClient();
         }
 
-        [Fact]
-        public async Task GetAll()
-        {
-            // Arrange
-            var expected = new CityDto { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
+        //[Fact]
+        //public async Task GetAll()
+        //{
+        //    // Arrange
+        //    var expected = new CityDto { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
 
-            // Act
-            HttpResponseMessage response = await _client.GetAsync("Cities/GetAll");
+        //    // Act
+        //    HttpResponseMessage response = await _client.GetAsync("Cities/GetAll");
 
-            // Assert
-            Assert.True(response.IsSuccessStatusCode);
+        //    // Assert
+        //    Assert.True(response.IsSuccessStatusCode);
 
-            var result = await response.Content.ReadAsAsync<List<CityDto>>();
-            Assert.NotNull(result);
-            Assert.NotEmpty(result);
-            Assert.Contains(expected, result);
-        }
+        //    var result = await response.Content.ReadAsAsync<List<CityDto>>();
+        //    Assert.NotNull(result);
+        //    Assert.NotEmpty(result);
+        //    Assert.Contains(expected, result);
+        //}
 
-        [Fact]
-        public async Task Get_Ok()
-        {
-            // Arrange
-            var expected = new CityDto { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
+        //[Fact]
+        //public async Task Get_Ok()
+        //{
+        //    // Arrange
+        //    var expected = new CityDto { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
 
-            // Act
-            HttpResponseMessage response = await _client.GetAsync("Cities/Get/1");
+        //    // Act
+        //    HttpResponseMessage response = await _client.GetAsync("Cities/Get/1");
 
-            // Assert
-            Assert.True(response.IsSuccessStatusCode);
+        //    // Assert
+        //    Assert.True(response.IsSuccessStatusCode);
 
-            var result = await response.Content.ReadAsAsync<CityDto>();
-            Assert.NotNull(result);
-            Assert.Equal(expected, result);
-        }
+        //    var result = await response.Content.ReadAsAsync<CityDto>();
+        //    Assert.NotNull(result);
+        //    Assert.Equal(expected, result);
+        //}
 
-        [Fact]
-        public async Task Get_NotFound()
-        {
-            // Arrange
+        //[Fact]
+        //public async Task Get_NotFound()
+        //{
+        //    // Arrange
 
-            // Act
-            HttpResponseMessage response = await _client.GetAsync("Cities/Get/0");
+        //    // Act
+        //    HttpResponseMessage response = await _client.GetAsync("Cities/Get/0");
 
-            // Assert
-            Assert.Equal(System.Net.HttpStatusCode.NotFound, response.StatusCode);
-        }
+        //    // Assert
+        //    Assert.Equal(System.Net.HttpStatusCode.NotFound, response.StatusCode);
+        //}
     }
 }

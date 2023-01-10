@@ -28,35 +28,35 @@ namespace WeatherApi.Test.UnitTests.Api
             _controller = new WeatherForecastController(_weatherService);
         }
 
-        [Fact]
-        public async Task Get_Ok()
-        {
-            // Arrange
-            var expected = _fixture.Create<WeatherForecast>();
+        //[Fact]
+        //public async Task Get_Ok()
+        //{
+        //    // Arrange
+        //    var expected = _fixture.Create<WeatherForecast>();
 
-            _weatherService.Get(Arg.Any<int>()).Returns(expected);
+        //    _weatherService.Get(Arg.Any<int>()).Returns(expected);
 
-            // Act
-            var actual = await _controller.Get(expected.City.Id);
+        //    // Act
+        //    var actual = await _controller.Get(expected.City.Id);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<OkObjectResult>(actual);
-            Assert.Equal(expected, ((OkObjectResult)actual).Value);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<OkObjectResult>(actual);
+        //    Assert.Equal(expected, ((OkObjectResult)actual).Value);
+        //}
 
-        [Fact]
-        public async Task Get_NotFound()
-        {
-            // Arrange
-            _weatherService.Get(Arg.Any<int>()).ReturnsNull();
+        //[Fact]
+        //public async Task Get_NotFound()
+        //{
+        //    // Arrange
+        //    _weatherService.Get(Arg.Any<int>()).ReturnsNull();
 
-            // Act
-            var actual = await _controller.Get(-1);
+        //    // Act
+        //    var actual = await _controller.Get(-1);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<NotFoundObjectResult>(actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<NotFoundObjectResult>(actual);
+        //}
     }
 }

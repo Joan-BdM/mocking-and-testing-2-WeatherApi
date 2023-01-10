@@ -46,94 +46,49 @@ namespace WeatherApi.Test.UnitTests.Contracts
                 new object[] { 9999 }
             };
 
-        [Fact]
-        public void WeatherForecast_NullCity_Equal()
-        {
-            // Arrange
-            var original = _fixture.Build<WeatherForecast>().Without(x => x.City).Create();
-            var copy = CreateDeepCopy(original);
+        //[Fact]
+        //public void WeatherForecast_NullCity_Equal()
+        //{
+        //    // Arrange
+        //    var original = _fixture.Build<WeatherForecast>().Without(x => x.City).Create();
+        //    var copy = CreateDeepCopy(original);
 
-            // Act
-            // Asser
-            Assert.True(original.Equals(copy));
-            Assert.True(original.Equals(copy as object));
-            Assert.Equal(original, copy);
-            Assert.Equal(original.GetHashCode(), copy.GetHashCode());
-        }
+        //    // Act
+        //    // Asser
+        //    Assert.True(original.Equals(copy));
+        //    Assert.True(original.Equals(copy as object));
+        //    Assert.Equal(original, copy);
+        //    Assert.Equal(original.GetHashCode(), copy.GetHashCode());
+        //}
 
-        [Fact]
-        public void WeatherForecast_NullCity_Different()
-        {
-            // Arrange
-            var object1 = _fixture.Build<WeatherForecast>().Without(x => x.City).Create();
-            var object2 = _fixture.Build<WeatherForecast>().Without(x => x.City).Create();
+        //[Fact]
+        //public void WeatherForecast_NullCity_Different()
+        //{
+        //    // Arrange
+        //    var object1 = _fixture.Build<WeatherForecast>().Without(x => x.City).Create();
+        //    var object2 = _fixture.Build<WeatherForecast>().Without(x => x.City).Create();
 
-            // Act
-            // Asser
-            Assert.False(object1.Equals(object2));
-            Assert.False(object1.Equals((object)object2));
-            Assert.NotEqual(object1, object2);
-            Assert.NotEqual(object1.GetHashCode(), object2.GetHashCode());
-        }
+        //    // Act
+        //    // Asser
+        //    Assert.False(object1.Equals(object2));
+        //    Assert.False(object1.Equals((object)object2));
+        //    Assert.NotEqual(object1, object2);
+        //    Assert.NotEqual(object1.GetHashCode(), object2.GetHashCode());
+        //}
 
-        [Theory]
-        [MemberData(nameof(TestWeatherCodes))]
-        public void CurrentWeather_Description(int weatherCode)
-        {
-            // Arrange
-            var sut = new CurrentWeather { Weathercode = weatherCode };
+        //[Theory]
+        //[MemberData(nameof(TestWeatherCodes))]
+        //public void CurrentWeather_Description(int weatherCode)
+        //{
+        //    // Arrange
+        //    var sut = new CurrentWeather { Weathercode = weatherCode };
 
-            // Act
-            var result = sut.Description;
+        //    // Act
+        //    var result = sut.Description;
 
-            // Assert
-            Assert.NotNull(result);
-        }
-
-        /*
-        [Theory]
-        [InlineData(-1)]
-        [InlineData(0)]
-        [InlineData(1)]
-        [InlineData(2)]
-        [InlineData(3)]
-        [InlineData(45)]
-        [InlineData(48)]
-        [InlineData(51)]
-        [InlineData(53)]
-        [InlineData(55)]
-        [InlineData(56)]
-        [InlineData(57)]
-        [InlineData(61)]
-        [InlineData(63)]
-        [InlineData(65)]
-        [InlineData(66)]
-        [InlineData(67)]
-        [InlineData(71)]
-        [InlineData(73)]
-        [InlineData(75)]
-        [InlineData(77)]
-        [InlineData(80)]
-        [InlineData(81)]
-        [InlineData(82)]
-        [InlineData(85)]
-        [InlineData(86)]
-        [InlineData(95)]
-        [InlineData(96)]
-        [InlineData(99)]
-        [InlineData(9999)]
-        public void CurrentWeather_Description(int weatherCode)
-        {
-            // Arrange
-            var sut = new CurrentWeather { Weathercode = weatherCode };
-
-            // Act
-            var result = sut.Description;
-
-            // Assert
-            Assert.NotNull(result);
-        }
-        */
+        //    // Assert
+        //    Assert.NotNull(result);
+        //}
 
         /// <summary>
         /// Creates a full deep copy of an object

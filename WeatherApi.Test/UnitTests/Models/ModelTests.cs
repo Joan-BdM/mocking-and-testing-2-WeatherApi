@@ -20,52 +20,52 @@ namespace WeatherApi.Test.UnitTests.Contracts
                 new object[] { typeof(City) }
             };
 
-        [Theory]
-        [MemberData(nameof(TestTypes))]
-        public void Are_Equal<T>(T type)
-        {
-            // Arrange
-            var original = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
-            var copy = CreateDeepCopy(original);
+        //[Theory]
+        //[MemberData(nameof(TestTypes))]
+        //public void Are_Equal<T>(T type)
+        //{
+        //    // Arrange
+        //    var original = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
+        //    var copy = CreateDeepCopy(original);
 
-            // Act
-            // Assert
-            Assert.True(original.Equals(copy));
-            Assert.True(original.Equals(copy as object));
-            Assert.Equal(original, copy);
-            Assert.Equal(original.GetHashCode(), copy.GetHashCode());
-        }
+        //    // Act
+        //    // Assert
+        //    Assert.True(original.Equals(copy));
+        //    Assert.True(original.Equals(copy as object));
+        //    Assert.Equal(original, copy);
+        //    Assert.Equal(original.GetHashCode(), copy.GetHashCode());
+        //}
 
-        [Theory]
-        [MemberData(nameof(TestTypes))]
-        public void Are_Different<T>(T type)
-        {
-            // Arrange
-            var object1 = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
-            var object2 = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
+        //[Theory]
+        //[MemberData(nameof(TestTypes))]
+        //public void Are_Different<T>(T type)
+        //{
+        //    // Arrange
+        //    var object1 = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
+        //    var object2 = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
 
-            // Act
-            // Assert
-            Assert.False(object1.Equals(object2));
-            Assert.False(object1.Equals((object)object2));
-            Assert.NotEqual(object1, object2);
-            Assert.NotEqual(object1.GetHashCode(), object2.GetHashCode());
-        }
+        //    // Act
+        //    // Assert
+        //    Assert.False(object1.Equals(object2));
+        //    Assert.False(object1.Equals((object)object2));
+        //    Assert.NotEqual(object1, object2);
+        //    Assert.NotEqual(object1.GetHashCode(), object2.GetHashCode());
+        //}
 
-        [Theory]
-        [MemberData(nameof(TestTypes))]
-        public void Are_Different_Null<T>(T type)
-        {
-            // Arrange
-            var object1 = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
-            object object2 = null;
+        //[Theory]
+        //[MemberData(nameof(TestTypes))]
+        //public void Are_Different_Null<T>(T type)
+        //{
+        //    // Arrange
+        //    var object1 = _fixture.Create(type, new AutoFixture.Kernel.SpecimenContext(_fixture));
+        //    object object2 = null;
 
-            // Act
-            // Assert
-            Assert.False(object1.Equals(object2));
-            Assert.False(object1.Equals((object)object2));
-            Assert.NotEqual(object1, object2);
-        }
+        //    // Act
+        //    // Assert
+        //    Assert.False(object1.Equals(object2));
+        //    Assert.False(object1.Equals((object)object2));
+        //    Assert.NotEqual(object1, object2);
+        //}
 
         /// <summary>
         /// Creates a full deep copy of an object

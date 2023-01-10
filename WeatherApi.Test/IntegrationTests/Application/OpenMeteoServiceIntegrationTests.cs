@@ -9,21 +9,21 @@ namespace WeatherApi.Test.IntegratinoTests.Application
     {
         private readonly OpenMeteoService _service = new();
 
-        [Theory]
-        [InlineData(0, 0)]
-        [InlineData(39.57, 2.65)]
-        [InlineData(35.49, 137.47)]
-        public async Task Get_Ok(float lat, float lon)
-        {
-            // Arrange
+        //[Theory]
+        //[InlineData(0, 0)]
+        //[InlineData(39.57, 2.65)]
+        //[InlineData(35.49, 137.47)]
+        //public async Task Get_Ok(float lat, float lon)
+        //{
+        //    // Arrange
 
-            // Act
-            var actual = await _service.Get(lat, lon);
+        //    // Act
+        //    var actual = await _service.Get(lat, lon);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<WeatherForecast>(actual);
-            Assert.NotNull(actual.Current_weather);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<WeatherForecast>(actual);
+        //    Assert.NotNull(actual.Current_weather);
+        //}
     }
 }

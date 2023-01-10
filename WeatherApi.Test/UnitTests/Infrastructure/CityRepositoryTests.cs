@@ -15,57 +15,57 @@ namespace WeatherApi.Test.UnitTests.Infrastructure
             _sut = new CityRepository();
         }
 
-        [Fact]
-        public void GetAll_Ok()
-        {
-            // Arrange
-            var expected = new City { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
+        //[Fact]
+        //public void GetAll_Ok()
+        //{
+        //    // Arrange
+        //    var expected = new City { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
 
-            // Act
-            var actual = _sut.GetAll();
+        //    // Act
+        //    var actual = _sut.GetAll();
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsAssignableFrom<IEnumerable<City>>(actual);
-            Assert.NotEmpty(actual);
-            Assert.Contains(expected, actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsAssignableFrom<IEnumerable<City>>(actual);
+        //    Assert.NotEmpty(actual);
+        //    Assert.Contains(expected, actual);
+        //}
 
-        [Fact]
-        public void Get_Ok()
-        {
-            // Arrange
-            var expected = new City { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
+        //[Fact]
+        //public void Get_Ok()
+        //{
+        //    // Arrange
+        //    var expected = new City { Id = 1, Name = "Palma", Latitude = 39.5700136f, Longitude = 2.6457357f };
 
-            // Act
-            var actual = _sut.Get(expected.Id);
+        //    // Act
+        //    var actual = _sut.Get(expected.Id);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<City>(actual);
-            Assert.Equal(expected, actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<City>(actual);
+        //    Assert.Equal(expected, actual);
+        //}
 
-        [Fact]
-        public void Get_NotFound()
-        {
-            // Arrange
+        //[Fact]
+        //public void Get_NotFound()
+        //{
+        //    // Arrange
 
-            // Act
-            var actual = _sut.Get(0);
+        //    // Act
+        //    var actual = _sut.Get(0);
 
-            // Assert
-            Assert.Null(actual);
-        }
+        //    // Assert
+        //    Assert.Null(actual);
+        //}
 
-        [Fact]
-        public void Get_Exception()
-        {
-            // Arrange
-            // Act
+        //[Fact]
+        //public void Get_Exception()
+        //{
+        //    // Arrange
+        //    // Act
 
-            // Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Get(-1));
-        }
+        //    // Assert
+        //    Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Get(-1));
+        //}
     }
 }

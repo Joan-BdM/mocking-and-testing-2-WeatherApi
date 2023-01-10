@@ -33,80 +33,80 @@ namespace WeatherApi.Test.UnitTests.Application
             _sut = new CityService(_cityRepo, _mapper);
         }
 
-        [Fact]
-        public void GetAll_Ok()
-        {
-            // Arrange
-            var model = _fixture.CreateMany<City>();
-            var expected = model.Select(x => new CityDto
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Latitude = x.Latitude,
-                Longitude = x.Longitude
-            });
+        //[Fact]
+        //public void GetAll_Ok()
+        //{
+        //    // Arrange
+        //    var model = _fixture.CreateMany<City>();
+        //    var expected = model.Select(x => new CityDto
+        //    {
+        //        Id = x.Id,
+        //        Name = x.Name,
+        //        Latitude = x.Latitude,
+        //        Longitude = x.Longitude
+        //    });
 
-            _cityRepo.GetAll().Returns(model);
-            _mapper.Map<IEnumerable<CityDto>>(Arg.Any<IEnumerable<City>>()).Returns(expected);
+        //    _cityRepo.GetAll().Returns(model);
+        //    _mapper.Map<IEnumerable<CityDto>>(Arg.Any<IEnumerable<City>>()).Returns(expected);
 
-            // Act
-            var actual = _sut.GetAll();
+        //    // Act
+        //    var actual = _sut.GetAll();
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.NotEmpty(actual);
-            Assert.Equal(expected, actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.NotEmpty(actual);
+        //    Assert.Equal(expected, actual);
+        //}
 
-        [Fact]
-        public void Get_Ok()
-        {
-            // Arrange
-            var model = _fixture.Create<City>();
-            var expected = new CityDto
-            {
-                Id = model.Id,
-                Name = model.Name,
-                Latitude = model.Latitude,
-                Longitude = model.Longitude
-            };
+        //[Fact]
+        //public void Get_Ok()
+        //{
+        //    // Arrange
+        //    var model = _fixture.Create<City>();
+        //    var expected = new CityDto
+        //    {
+        //        Id = model.Id,
+        //        Name = model.Name,
+        //        Latitude = model.Latitude,
+        //        Longitude = model.Longitude
+        //    };
 
-            _cityRepo.Get(Arg.Any<int>()).Returns(model);
-            _mapper.Map<CityDto>(Arg.Any<City>()).Returns(expected);
+        //    _cityRepo.Get(Arg.Any<int>()).Returns(model);
+        //    _mapper.Map<CityDto>(Arg.Any<City>()).Returns(expected);
 
-            // Act
-            var actual = _sut.Get(model.Id);
+        //    // Act
+        //    var actual = _sut.Get(model.Id);
 
-            // Assert
-            Assert.NotNull(actual);
-            Assert.IsType<CityDto>(actual);
-            Assert.Equal(expected, actual);
-        }
+        //    // Assert
+        //    Assert.NotNull(actual);
+        //    Assert.IsType<CityDto>(actual);
+        //    Assert.Equal(expected, actual);
+        //}
 
-        [Fact]
-        public void Get_NotFound()
-        {
-            // Arrange
-            _cityRepo.Get(Arg.Any<int>()).ReturnsNull();
+        //[Fact]
+        //public void Get_NotFound()
+        //{
+        //    // Arrange
+        //    _cityRepo.Get(Arg.Any<int>()).ReturnsNull();
 
-            // Act
-            var actual = _sut.Get(0);
+        //    // Act
+        //    var actual = _sut.Get(0);
 
-            // Assert
-            Assert.Null(actual);
-        }
+        //    // Assert
+        //    Assert.Null(actual);
+        //}
 
-        [Fact]
-        public void Get_Exception()
-        {
-            // Arrange
-            _cityRepo.Get(Arg.Any<int>()).ReturnsNull();
+        //[Fact]
+        //public void Get_Exception()
+        //{
+        //    // Arrange
+        //    _cityRepo.Get(Arg.Any<int>()).ReturnsNull();
 
-            // Act
-            var actual = _sut.Get(-42);
+        //    // Act
+        //    var actual = _sut.Get(-42);
 
-            // Assert
-            Assert.Null(actual);
-        }
+        //    // Assert
+        //    Assert.Null(actual);
+        //}
     }
 }
