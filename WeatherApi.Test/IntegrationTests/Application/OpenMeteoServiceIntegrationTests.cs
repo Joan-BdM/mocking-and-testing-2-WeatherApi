@@ -40,7 +40,6 @@ namespace WeatherApi.Test.IntegratinoTests.Application
             Assert.NotNull(actual);
             Assert.IsType<WeatherForecast>(actual);
             Assert.NotNull(actual.Current_weather);
-            Assert.Equivalent(actual, actual);
         }
     }
 }
