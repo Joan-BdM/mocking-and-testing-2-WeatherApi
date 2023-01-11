@@ -22,7 +22,7 @@ namespace WeatherApi.Application.Services
         public async Task<WeatherForecast> Get(int cityId)
         {
             // Get City info
-            CityDto city = _cityService.Get(cityId);
+            CityDto? city = _cityService.Get(cityId);
 
             if (city == null)
                 return null;
