@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 using WeatherApi.Application.Services;
 using WeatherApi.Contracts.DTO;
 using Xunit;
@@ -7,7 +8,22 @@ namespace WeatherApi.Test.IntegratinoTests.Application
 {
     public class OpenMeteoServiceIntegrationTests
     {
-        private readonly OpenMeteoService _service = new();
+        private readonly IConfiguration _configuration;
+
+        private readonly OpenMeteoService _service;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public OpenMeteoServiceIntegrationTests()
+        {
+            // Load local Appsettings.json
+            _configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.test.json")
+                .Build();
+
+            _service = new OpenMeteoService(_configuration);
+        }
 
         [Theory]
         [InlineData(0, 0)]
@@ -24,6 +40,7 @@ namespace WeatherApi.Test.IntegratinoTests.Application
             Assert.NotNull(actual);
             Assert.IsType<WeatherForecast>(actual);
             Assert.NotNull(actual.Current_weather);
+            Assert.Equivalent(actual, actual);
         }
     }
 }

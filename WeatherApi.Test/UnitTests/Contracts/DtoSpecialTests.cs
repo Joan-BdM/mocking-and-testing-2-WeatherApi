@@ -90,51 +90,6 @@ namespace WeatherApi.Test.UnitTests.Contracts
             Assert.NotNull(result);
         }
 
-        /*
-        [Theory]
-        [InlineData(-1)]
-        [InlineData(0)]
-        [InlineData(1)]
-        [InlineData(2)]
-        [InlineData(3)]
-        [InlineData(45)]
-        [InlineData(48)]
-        [InlineData(51)]
-        [InlineData(53)]
-        [InlineData(55)]
-        [InlineData(56)]
-        [InlineData(57)]
-        [InlineData(61)]
-        [InlineData(63)]
-        [InlineData(65)]
-        [InlineData(66)]
-        [InlineData(67)]
-        [InlineData(71)]
-        [InlineData(73)]
-        [InlineData(75)]
-        [InlineData(77)]
-        [InlineData(80)]
-        [InlineData(81)]
-        [InlineData(82)]
-        [InlineData(85)]
-        [InlineData(86)]
-        [InlineData(95)]
-        [InlineData(96)]
-        [InlineData(99)]
-        [InlineData(9999)]
-        public void CurrentWeather_Description(int weatherCode)
-        {
-            // Arrange
-            var sut = new CurrentWeather { Weathercode = weatherCode };
-
-            // Act
-            var result = sut.Description;
-
-            // Assert
-            Assert.NotNull(result);
-        }
-        */
-
         /// <summary>
         /// Creates a full deep copy of an object
         /// </summary>
